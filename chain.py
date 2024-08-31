@@ -11,7 +11,7 @@ def get_transcript(youtube_url):
     transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
 
     try:
-        transcript = transcript_list.find_manually_created_transcript(language_codes='ko')
+        transcript = transcript_list.find_manually_created_transcript(language_codes=['ko', 'en'])
     except NoTranscriptFound:
         try:
             generated_transcripts = [trans for trans in transcript_list if trans.is_generated]
